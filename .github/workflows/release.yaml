@@ -34,4 +34,4 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, dynamic
         asset_path: ./core-api/src/index.ts
         asset_name: core-api.ts # The name of the asset as it will appear on the release
-         asset_content_type: application/typescript
+        asset_content_type: application/typescript
