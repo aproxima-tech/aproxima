@@ -13,7 +13,8 @@ jobs:
         node-version: 20
     - name: Install bun
       uses: oven-sh/setup-bun@v1
-    - name: Install dependencies
+    - name: Install core-api dependencies
+      working-directory: ./core-api
       run: bun install --frozen-lockfile
     - name: Create Release
       id: create_release
