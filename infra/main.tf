@@ -25,16 +25,73 @@ variable "CLOUDFLARE_API_TOKEN" {
   sensitive   = true
 }
 
+variable "CLOUDFLARE_ACCOUNT_ID" {
+  description = "The account ID for the Cloudflare account. Variable set on Terraform Cloud as a sensitive environment variable: TF_VAR_CLOUDFLARE_ACCOUNT_ID."
+  type        = string
+  sensitive   = true
+}
+
+# aproxima.net:
+# - aproxima.net     -> shop.aproxima.net
+# - www.aproxima.net -> shop.aproxima.net
+# - api.aproxima.net: Core REST API (/core-api)
+# - auth.aproxima.net: Authentication web app (/auth)
+# - home.aproxima.net: Home automation web app (/home)
+# - shop.aproxima.net: E-commerce web app (/shop)
 variable "CLOUDFLARE_APROXIMA_NET_ZONE_ID" {
   description = "The zone ID for the domain aproxima.net. Variable set on Terraform Cloud as a sensitive environment variable: TF_VAR_CLOUDFLARE_APROXIMA_NET_ZONE_ID."
   type        = string
   sensitive   = true
 }
 
-resource "cloudflare_worker_route" "core-api-route" {
-  zone_id     = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
-  pattern     = "aproxima.net/api/*"
-  script_name = "core-api"
+# redirect to shop.aproxima.net
+resource "cloudflare_record" "aproxima_net" {
+  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  name    = "aproxima.net"
+  type    = "CNAME"
+  value   = "shop.aproxima.net"
+  proxied = true
+}
+
+# redirect to shop.aproxima.net
+resource "cloudflare_record" "www_aproxima_net" {
+  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  name    = "www"
+  type    = "CNAME"
+  value   = "shop.aproxima.net"
+  proxied = true
+}
+
+# core-api worker must be deployed first before the domain can be added to it.
+resource "cloudflare_worker_domain" "core-api" {
+  account_id = var.CLOUDFLARE_ACCOUNT_ID
+  zone_id    = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  hostname   = "api.aproxima.net"
+  service    = "core-api"
+}
+
+# auth worker must be deployed first before the domain can be added to it.
+resource "cloudflare_worker_domain" "auth" {
+  account_id = var.CLOUDFLARE_ACCOUNT_ID
+  zone_id    = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  hostname   = "auth.aproxima.net"
+  service    = "auth"
+}
+
+# shop worker must be deployed first before the domain can be added to it.
+resource "cloudflare_worker_domain" "shop" {
+  account_id = var.CLOUDFLARE_ACCOUNT_ID
+  zone_id    = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  hostname   = "shop.aproxima.net"
+  service    = "shop"
+}
+
+# home worker must be deployed first before the domain can be added to it.
+resource "cloudflare_worker_domain" "home" {
+  account_id = var.CLOUDFLARE_ACCOUNT_ID
+  zone_id    = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  hostname   = "home.aproxima.net"
+  service    = "home"
 }
 
 
