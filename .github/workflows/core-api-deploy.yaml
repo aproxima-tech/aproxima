@@ -8,6 +8,9 @@ jobs:
   release:
     timeout-minutes: 10
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./core-api
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
@@ -16,10 +19,9 @@ jobs:
     - name: Install bun
       uses: oven-sh/setup-bun@v1
     - name: Install core-api dependencies
-      working-directory: ./core-api
       run: bun install --frozen-lockfile
     - name: Login to Cloudflare
-      run: wrangler config
+      run: bun wrangler:config
       env:
         CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     - name: Publish Worker Script
