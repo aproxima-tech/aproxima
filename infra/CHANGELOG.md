@@ -11,7 +11,7 @@ cd infra/
 terraform init
 ```
 
-Created a Terraform Cloud account. All Terraform plans and apply execute on Terraform Cloud, which eases Terraform state management. I linked Terraform Cloud as an OAuth application to my GitHub account, so that Terraform Cloud can automatically apply changes to the infrastructure when changes are pushed to the repository.
+Created a Terraform Cloud account. All Terraform plan & apply runs execute on Terraform Cloud, which eases Terraform state management. I linked Terraform Cloud as an OAuth application to my GitHub account, so that Terraform Cloud can automatically apply changes to the infrastructure when changes are pushed to the repository.
 
 Created a `main.tf` file to define the Cloudflare infrastructure for the production environment. Added the secrets to Terraform Cloud as environment variables, prefixed with `TF_VAR_`. This is done to avoid storing secrets in the repository.
 

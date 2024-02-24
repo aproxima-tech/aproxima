@@ -31,21 +31,10 @@ variable "CLOUDFLARE_APROXIMA_NET_ZONE_ID" {
   sensitive   = true
 }
 
-variable "CLOUDFLARE_ACCOUNT_ID" {
-  description = "The account ID for the Cloudflare account. Variable set on Terraform Cloud as a sensitive environment variable: TF_VAR_CLOUDFLARE_ACCOUNT_ID."
-  type        = string
-  sensitive   = true
-}
-
 resource "cloudflare_worker_route" "core-api-route" {
   zone_id     = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
   pattern     = "aproxima.net/api/*"
-  script_name = cloudflare_worker_script.core-api.name
+  script_name = "core-api"
 }
 
-resource "cloudflare_worker_script" "core-api" {
-  account_id = var.CLOUDFLARE_ACCOUNT_ID
-  name       = "core-api"
-  content    = "console.log('Hello, world!')"
-}
 
