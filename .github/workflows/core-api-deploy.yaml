@@ -20,11 +20,8 @@ jobs:
       uses: oven-sh/setup-bun@v1
     - name: Install core-api dependencies
       run: bun install --frozen-lockfile
-    - name: Login to Cloudflare
-      run: bun wrangler:login
+    - name: Publish Worker Script
+      run: bun run deploy
       env:
         CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-    - name: Publish Worker Script
-      run: bun deploy
-      env:
         CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
