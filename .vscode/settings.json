@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    // Turn formatOnSave off for JS and JSX, controlled by ESLint
+    "editor.formatOnSave": false
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
+}

@@ -1,3 +1,4 @@
 {
-  "name": "aproxima-monorepo"
+  "name": "aproxima-monorepo",
+  "workspaces": ["auth", "core-api", "home", "packages/*", "shop"]
 }
