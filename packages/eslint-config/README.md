@@ -1,6 +1,6 @@
 # Aproxima ESLint Config
 
-This package provides a default ESLint configuration for ESLint v8.5 flat configuration.
+This package provides a default ESLint configuration for ESLint v8.5 flat configurations.
 
 ## Installation
 
@@ -32,3 +32,29 @@ import aproximaEslintConfig from "@aproxima/eslint-config";
 export default aproximaEslintConfig;
 ```
 
+## VSCode
+
+Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and add the following to your workspace `settings.json`:
+
+```json
+{
+  "editor.formatOnSave": true,
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    // Turn formatOnSave off for JS and JSX, controlled by ESLint
+    "editor.formatOnSave": false
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // flat config is still experimental
+  "eslint.experimental.useFlatConfig": true
+}
+```
+
+If you are working in a monorepo, you may need to also add the `eslint.workingDirectories` setting to your workspace `settings.json` for each app/package directory:
+
+```json
+{
+  "eslint.workingDirectories": ["./packages/*"]
+}
+```
