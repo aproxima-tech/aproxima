@@ -1,4 +1,4 @@
-name: core-api deploy
+name: Deploy core-api
 on:
   push:
     paths:

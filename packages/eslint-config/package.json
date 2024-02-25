@@ -12,12 +12,19 @@
   ],
   "type": "module",
   "main": "index.js",
-  "repository": "https://github.com/aproxima-tech/aproxima",
   "author": "Andre Landgraf <andre@aproxima.io>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aproxima-tech/aproxima.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "publish": "npm publish --access public"
   },
   "peerDependencies": {
     "eslint": ">=8.57.0",

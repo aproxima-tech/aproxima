@@ -1,4 +1,4 @@
-name: core-api tests
+name: Test core-api
 on:
   push:
     paths:

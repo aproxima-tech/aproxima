@@ -1,4 +1,4 @@
-name: home deploy
+name: Deploy home
 on:
   push:
     paths:
