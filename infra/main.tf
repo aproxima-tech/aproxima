@@ -121,4 +121,7 @@ resource "cloudflare_worker_domain" "home" {
   service    = "home"
 }
 
-
+resource "cloudflare_d1_database" "core-db" {
+  account_id = var.CLOUDFLARE_ACCOUNT_ID
+  name       = "core-db"
+}
