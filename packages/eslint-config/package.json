@@ -1,12 +1,13 @@
 {
-  "name": "@aproxima-tech/eslint-config",
-  "version": "0.0.1",
+  "name": "@aproxima/eslint-config",
+  "version": "0.0.0",
   "description": "ESLint configuration for Aproxima",
   "keywords": [
     "javascript",
     "typescript",
     "eslint",
     "eslint-config",
+    "eslintconfig",
     "lint",
     "config"
   ],
