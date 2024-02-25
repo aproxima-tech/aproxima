@@ -6,12 +6,5 @@
   },
   "scripts": {
     "init": "bun run scripts/init.ts"
-  },
-  "workspaces": [
-    "packages/*",
-    "auth",
-    "core-api",
-    "home",
-    "shop"
-  ]
+  }
 }
