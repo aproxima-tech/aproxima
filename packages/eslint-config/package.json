@@ -20,7 +20,7 @@
     "url": "git+https://github.com/aproxima-tech/aproxima.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "lint": "eslint .",
