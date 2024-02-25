@@ -1,4 +1,7 @@
 {
   "name": "aproxima-monorepo",
-  "workspaces": ["auth", "core-api", "home", "packages/*", "shop"]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aproxima-tech/aproxima.git"
+  }
 }
