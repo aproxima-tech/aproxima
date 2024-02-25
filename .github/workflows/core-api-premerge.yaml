@@ -1,4 +1,4 @@
-name: Test core-api
+name: Premerge checks for core-api
 on:
   push:
     paths:
@@ -9,7 +9,7 @@ on:
       - core-api/**
     branches: [main]
 jobs:
-  test:
+  premerge:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     defaults:
@@ -24,5 +24,9 @@ jobs:
         uses: oven-sh/setup-bun@v1
       - name: Install dependencies
         run: bun install --frozen-lockfile
+      - name: TypeScript checks
+        run: bun run typecheck
+      - name: Lint checks
+        run: bun run lint
       - name: Run vitest
         run: bun test
