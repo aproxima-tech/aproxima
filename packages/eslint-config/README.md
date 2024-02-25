@@ -10,6 +10,12 @@ This package provides a default ESLint configuration for ESLint v8.5 flat config
 npm install --save-dev @aproxima/eslint-config
 ```
 
+### Using yarn
+
+```bash
+yarn add --dev @aproxima/eslint-config
+```
+
 ### Using bun (like in this monorepo)
 
 ```bash
