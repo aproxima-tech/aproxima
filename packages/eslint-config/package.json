@@ -1,6 +1,6 @@
 {
   "name": "@aproxima-tech/eslint-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "ESLint configuration for Aproxima",
   "keywords": [
     "javascript",
@@ -23,8 +23,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "publish": "npm publish --access public"
+    "lint:fix": "eslint . --fix"
   },
   "peerDependencies": {
     "eslint": ">=8.57.0",

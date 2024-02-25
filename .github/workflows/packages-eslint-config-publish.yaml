@@ -28,7 +28,7 @@ jobs:
     - name: Ensure there are no issues with running lint
       run: bun run lint
     - name: Publish package
-      run: bun run publish
+      run: npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
