@@ -1,0 +1,6 @@
+{
+  "name": "Aproxima automation scripts",
+  "devDependencies": {
+    "@types/bun": "^1.0.7"
+  }
+}

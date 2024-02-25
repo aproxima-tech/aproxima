@@ -3,5 +3,15 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aproxima-tech/aproxima.git"
-  }
+  },
+  "scripts": {
+    "init": "bun run scripts/init.ts"
+  },
+  "workspaces": [
+    "packages/*",
+    "auth",
+    "core-api",
+    "home",
+    "shop"
+  ]
 }
