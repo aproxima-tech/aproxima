@@ -62,33 +62,6 @@ resource "cloudflare_record" "www_aproxima_net" {
   proxied = true
 }
 
-# redirect www.shop to shop.aproxima.net
-resource "cloudflare_record" "www_shop_aproxima_net" {
-  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
-  name    = "www"
-  type    = "CNAME"
-  value   = "shop.aproxima.net"
-  proxied = true
-}
-
-# redirect www.home to home.aproxima.net
-resource "cloudflare_record" "www_home_aproxima_net" {
-  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
-  name    = "www"
-  type    = "CNAME"
-  value   = "home.aproxima.net"
-  proxied = true
-}
-
-# redirect www.auth to auth.aproxima.net
-resource "cloudflare_record" "www_auth_aproxima_net" {
-  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
-  name    = "www"
-  type    = "CNAME"
-  value   = "auth.aproxima.net"
-  proxied = true
-}
-
 # core-api worker must be deployed first before the domain can be added to it.
 resource "cloudflare_worker_domain" "core-api" {
   account_id = var.CLOUDFLARE_ACCOUNT_ID
