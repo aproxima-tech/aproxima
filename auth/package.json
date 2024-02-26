@@ -1,5 +1,5 @@
 {
-  "name": "auth",
+  "name": "@aproxima/auth",
   "private": true,
   "sideEffects": false,
   "type": "module",

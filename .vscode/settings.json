@@ -9,10 +9,13 @@
   },
   "eslint.experimental.useFlatConfig": true,
   "eslint.workingDirectories": [
-    "./packages/*",
+    "./packages/eslint-config",
+    "./packages/workers-utils",
     "./auth",
     "./core-api",
+    "./core-db",
     "./home",
+    "./scripts",
     "./shop"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "shop",
+  "name": "@aproxima/shop",
   "private": true,
   "sideEffects": false,
   "type": "module",

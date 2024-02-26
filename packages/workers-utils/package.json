@@ -1,0 +1,33 @@
+{
+  "name": "@aproxima/workers-utils",
+  "version": "0.0.0",
+  "description": "ESLint configuration for Aproxima",
+  "keywords": [
+    "javascript",
+    "typescript",
+    "cloudflare workers"
+  ],
+  "type": "module",
+  "main": "src/index.ts",
+  "author": "Andre Landgraf <andre@aproxima.io>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aproxima-tech/aproxima.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@aproxima/eslint-config": "0.0.0",
+    "@cloudflare/workers-types": "4.20240208.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
+  }
+}

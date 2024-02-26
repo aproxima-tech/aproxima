@@ -1,0 +1,27 @@
+{
+  "name": "@aproxima/core-db",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "schema.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "schema:generate": "drizzle-kit generate:sqlite",
+    "db:update:local": "wrangler d1 execute core-db --local --file=./migrations/0000_lumpy_the_order.sql",
+    "db:update:prod": "wrangler d1 execute core-db --file=./migrations/0000_lumpy_the_order.sql"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.29.4"
+  },
+  "devDependencies": {
+    "@aproxima/eslint-config": "0.0.0",
+    "@aproxima/workers-utils": "workspace:*",
+    "@cloudflare/workers-types": "4.20240208.0",
+    "drizzle-kit": "^0.20.14",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3",
+    "wrangler": "^3.29.0"
+  }
+}

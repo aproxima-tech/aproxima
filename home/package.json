@@ -1,5 +1,5 @@
 {
-  "name": "home",
+  "name": "@aproxima/home",
   "private": true,
   "sideEffects": false,
   "type": "module",

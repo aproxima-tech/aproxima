@@ -1,5 +1,5 @@
 {
-  "name": "@aproxima-tech/core-api",
+  "name": "@aproxima/core-api",
   "version": "0.0.1",
   "type": "module",
   "scripts": {
@@ -11,6 +11,8 @@
     "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
+    "@aproxima/core-db": "workspace:*",
+    "drizzle-orm": "^0.29.4",
     "hono": "4.0.5"
   },
   "devDependencies": {
