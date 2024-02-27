@@ -11,8 +11,6 @@
     "lint",
     "config"
   ],
-  "type": "module",
-  "main": "index.js",
   "author": "Andre Landgraf <andre@aproxima.io>",
   "license": "MIT",
   "repository": {
@@ -21,6 +19,18 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.js"
+    },
+    "./remix": {
+      "import": "./remix.js",
+      "require": "./remix.js"
+    }
   },
   "scripts": {
     "lint": "eslint .",

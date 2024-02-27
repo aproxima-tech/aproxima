@@ -8,6 +8,7 @@ import jsxAlly from 'eslint-plugin-jsx-a11y';
 
 export default typescriptEslint.config({
   files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+  ignores: ['node_modules', 'dist', 'build', 'coverage', 'public', '.wrangler', '.cache'],
   extends: [
     eslint.configs.recommended,
     ...typescriptEslint.configs.recommended,
