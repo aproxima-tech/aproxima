@@ -1,33 +1,45 @@
 # Aproxima ESLint Config
 
-This package provides a default ESLint configuration for ESLint v8.5 flat configurations.
+This package provides a default ESLint configuration for [ESLint v8.5 flat configurations](https://eslint.org/docs/latest/use/configure/configuration-files-new).
 
 ## Installation
 
 ### Using npm
 
 ```bash
-npm install --save-dev @aproxima/eslint-config
+npm install --save-dev typescript prettier eslint @aproxima/eslint-config
 ```
 
 ### Using yarn
 
 ```bash
-yarn add --dev @aproxima/eslint-config
+yarn add --dev typescript prettier eslint @aproxima/eslint-config
 ```
 
-### Using bun (like in this monorepo)
+### Using bun
 
 ```bash
-bun install --save-dev @aproxima/eslint-config
+bun install --save-dev typescript prettier eslint @aproxima/eslint-config
 ```
 
 ## Setup
+
+### JavaScript/TypeScript
 
 Create an `eslint.config.js` file in the root of your project and add the following:
 
 ```javascript
 import aproximaEslintConfig from "@aproxima/eslint-config";
+
+export default aproximaEslintConfig;
+```
+
+### Remix
+
+Create an `eslint.config.js` file in the root of your project and add the following:
+
+```javascript
+import aproximaEslintConfig from "@aproxima/eslint-config/remix";
 
 export default aproximaEslintConfig;
 ```

@@ -1,6 +1,6 @@
 {
   "name": "@aproxima/eslint-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ESLint configuration for Aproxima",
   "keywords": [
     "javascript",
@@ -33,7 +33,10 @@
   },
   "dependencies": {
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "typescript-eslint": "^7.0.2"
   }
 }
