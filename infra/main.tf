@@ -44,7 +44,9 @@ variable "CLOUDFLARE_APROXIMA_NET_ZONE_ID" {
   sensitive   = true
 }
 
-# redirect to shop.aproxima.net
+# DNS records
+
+# Redirect to shop.aproxima.net
 resource "cloudflare_record" "aproxima_net" {
   zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
   name    = "aproxima.net"
@@ -53,7 +55,7 @@ resource "cloudflare_record" "aproxima_net" {
   proxied = true
 }
 
-# redirect to shop.aproxima.net
+# Redirect to shop.aproxima.net
 resource "cloudflare_record" "www_aproxima_net" {
   zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
   name    = "www"
@@ -94,7 +96,26 @@ resource "cloudflare_worker_domain" "home" {
   service    = "home"
 }
 
+# Databases
+
 resource "cloudflare_d1_database" "core-db" {
   account_id = var.CLOUDFLARE_ACCOUNT_ID
   name       = "core-db"
 }
+
+# Secrets
+
+# TODO: This is a temporary way of protecting the core-api POST endpoints. This will be replaced with user auth.
+variable "CLOUDFLARE_CORE_API_API_KEY" {
+  description = "The API key to communicate with the core api. Variable set on Terraform Cloud as a sensitive environment variable: TF_VAR_CLOUDFLARE_CORE_API_API_KEY."
+  type        = string
+  sensitive   = true
+}
+
+resource "cloudflare_worker_secret" "core-api-api-key" {
+  account_id  = var.CLOUDFLARE_ACCOUNT_ID
+  name        = "CORE_API_API_KEY"
+  script_name = "core-api"
+  secret_text = var.CLOUDFLARE_CORE_API_API_KEY
+}
+

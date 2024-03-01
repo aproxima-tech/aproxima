@@ -1,30 +1,38 @@
-import type { MetaFunction } from '@remix-run/cloudflare';
+import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/cloudflare';
+import { useLoaderData } from '@remix-run/react';
+import { useEffect, useState } from 'react';
 
 export const meta: MetaFunction = () => {
   return [{ title: 'New Remix App' }, { name: 'description', content: 'Welcome to Remix!' }];
 };
 
-export default function Index() {
+export function loader({ context }: LoaderFunctionArgs) {
+  const coreAPIHost = context.env.CORE_API_HOST;
+  return { coreAPIHost };
+}
+
+export default function Component() {
+  const [deviceId, setDeviceId] = useState('');
+  const { coreAPIHost } = useLoaderData<typeof loader>();
+  const [deviceData, setDeviceData] = useState({});
+
+  useEffect(() => {
+    if (!deviceId || deviceId.length !== 36) return;
+    const websocket = new WebSocket(`wss://${coreAPIHost}?device_id=${deviceId}`);
+    websocket.addEventListener('message', (event) => {
+      console.log('Message received from server');
+      console.log(event.data);
+      setDeviceData(JSON.parse(event.data));
+    });
+    return () => {
+      websocket.close();
+    };
+  }, [deviceId]);
   return (
-    <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a target="_blank" href="https://remix.run/tutorials/blog" rel="noreferrer">
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/tutorials/jokes" rel="noreferrer">
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div>
+      <h1>Device Data</h1>
+      <input type="text" value={deviceId} onChange={(e) => setDeviceId(e.target.value)} />
+      <div>{JSON.stringify(deviceData, null, 2)}</div>
     </div>
   );
 }

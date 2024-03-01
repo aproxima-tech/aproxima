@@ -11,14 +11,19 @@ if (process.env['NODE_ENV'] === 'development') {
   logDevReady(build);
 }
 
+type Env = {
+  __STATIC_CONTENT: Fetcher;
+  CORE_API_HOST: string;
+};
+
+declare module '@remix-run/server-runtime' {
+  export interface AppLoadContext {
+    env: Env;
+  }
+}
+
 export default {
-  async fetch(
-    request: Request,
-    env: {
-      __STATIC_CONTENT: Fetcher;
-    },
-    ctx: ExecutionContext,
-  ): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     try {
       const url = new URL(request.url);
       const ttl = url.pathname.startsWith('/build/')
