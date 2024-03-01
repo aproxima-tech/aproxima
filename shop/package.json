@@ -4,9 +4,9 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc",
     "build": "remix build",
     "deploy": "wrangler deploy",
     "dev": "remix dev --manual -c \"npm start\"",

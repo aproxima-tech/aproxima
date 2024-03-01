@@ -6,7 +6,8 @@
     "url": "git+https://github.com/aproxima-tech/aproxima.git"
   },
   "scripts": {
-    "init": "bun run scripts/init.ts"
+    "init": "bun install",
+    "lint": "bun run scripts/lint.ts"
   },
   "workspaces": [
     "packages/*",
