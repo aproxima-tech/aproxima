@@ -1,0 +1,23 @@
+name: Publish @aproxima/ui
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/ui/**"
+jobs:
+  publish:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/ui
+    permissions:
+      contents: read
+      id-token: write # The OIDC ID token is used for authentication with JSR.
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
+      - name: Publish to JSR
+        run: bunx jsr publish
