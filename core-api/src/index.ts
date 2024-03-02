@@ -1,12 +1,12 @@
-import type { DrizzleD1Database } from 'drizzle-orm/d1';
 import { drizzle } from 'drizzle-orm/d1';
-import * as schema from '@aproxima/core-db';
+import type { CoreDb } from '@aproxima/core-db';
+import { schema } from '@aproxima/core-db';
 import type { WorkerEnvironment } from './api';
 import { createApp } from './api';
 
 declare module 'hono' {
   interface ContextVariableMap {
-    db: DrizzleD1Database<typeof schema>;
+    db: CoreDb;
   }
 }
 

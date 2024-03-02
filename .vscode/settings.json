@@ -10,8 +10,8 @@
   "eslint.experimental.useFlatConfig": true,
   "eslint.workingDirectories": [
     "./packages/eslint-config",
-    "./packages/workers-utils",
     "./packages/ui",
+    "./packages/workers-utils",
     "./auth",
     "./core-api",
     "./core-db",
