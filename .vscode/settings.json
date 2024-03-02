@@ -11,6 +11,7 @@
   "eslint.workingDirectories": [
     "./packages/eslint-config",
     "./packages/workers-utils",
+    "./packages/ui",
     "./auth",
     "./core-api",
     "./core-db",

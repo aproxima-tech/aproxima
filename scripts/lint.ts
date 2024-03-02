@@ -7,7 +7,7 @@ import { getWorkspaceDirs } from "./helpers";
 async function lintWorkspaces() {
   for (const dir of getWorkspaceDirs()) {
     console.log(`Linting ${dir}...`);
-    await $`cd ${dir} && bun run lint`;
+    await $`cd ${dir} && bun run lint && bun run typecheck`;
   }
 }
 

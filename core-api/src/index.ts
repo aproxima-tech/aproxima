@@ -56,6 +56,7 @@ app.post('/devices/:id/data', async (c) => {
 export { DeviceDataFeed } from './device-data-feed';
 
 export default {
+  ...app,
   fetch: (request: Request, env: WorkerEnvironment, ctx: ExecutionContext) => {
     const upgradeHeader = request.headers.get('Upgrade');
     if (!upgradeHeader || upgradeHeader !== 'websocket') {
