@@ -131,4 +131,3 @@ resource "cloudflare_worker_secret" "auth-session-cookie-secret-one" {
   script_name = "auth"
   secret_text = var.CLOUDFLARE_AUTH_SESSION_COOKIE_SECRET_ONE
 }
-
