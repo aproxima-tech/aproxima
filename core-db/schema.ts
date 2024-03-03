@@ -1,10 +1,7 @@
 import { index, sqliteTable, text, primaryKey } from 'drizzle-orm/sqlite-core';
-import { generateUUID } from '@aproxima/workers-utils';
+import { generateUUID } from '@aproxima/workers-utils/crypto';
+import { oneDayFromNow } from '@aproxima/workers-utils/time';
 import { maxLengths } from './constraints';
-
-function oneDayFromNow() {
-  return new Date(Date.now() + 86400000);
-}
 
 /**
  * Guidelines:
@@ -44,20 +41,6 @@ export const userPasswordsTable = sqliteTable('user_passwords', {
   createdAt: text('created_at').$defaultFn(() => new Date().toISOString()),
   updatedAt: text('updated_at').$defaultFn(() => new Date().toISOString()),
 });
-
-/**
- * Value has to always be two-four characters long.
- */
-export const userTokenTypes = {
-  userSession: 'urse',
-  passwordReset: 'pwre',
-} as const;
-
-export type UserTokenType = keyof typeof userTokenTypes;
-
-export function generateUserToken(type: UserTokenType) {
-  return `${userTokenTypes[type]}_${generateUUID()}`;
-}
 
 /**
  * All user-bound tokens are stored here.

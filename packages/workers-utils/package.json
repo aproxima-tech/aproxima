@@ -7,8 +7,6 @@
     "typescript",
     "cloudflare workers"
   ],
-  "type": "module",
-  "main": "src/index.ts",
   "author": "Andre Landgraf <andre@aproxima.io>",
   "license": "MIT",
   "repository": {
@@ -17,6 +15,11 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "type": "module",
+  "exports": {
+    "./crypto": "./src/crypto.ts",
+    "./time": "./src/time.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
