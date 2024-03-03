@@ -119,3 +119,16 @@ resource "cloudflare_worker_secret" "core-api-api-key" {
   secret_text = var.CLOUDFLARE_CORE_API_API_KEY
 }
 
+variable "CLOUDFLARE_AUTH_SESSION_COOKIE_SECRET_ONE" {
+  description = "The first secret used to sign the user session cookie. Variable set on Terraform Cloud as a sensitive environment variable: TF_VAR_CLOUDFLARE_AUTH_SESSION_COOKIE_SECRET_ONE"
+  type        = string
+  sensitive   = true
+}
+
+resource "cloudflare_worker_secret" "auth-session-cookie-secret-one" {
+  account_id  = var.CLOUDFLARE_ACCOUNT_ID
+  name        = "AUTH_SESSION_COOKIE_SECRET_ONE"
+  script_name = "auth"
+  secret_text = var.CLOUDFLARE_AUTH_SESSION_COOKIE_SECRET_ONE
+}
+

@@ -14,3 +14,6 @@ compatibility_date = "2023-04-20"
 [env.production.vars]
 CORE_API_HOST = "api.aproxima.net"
 
+[dev]
+port = 8686
+local_protocol = "http"

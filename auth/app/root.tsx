@@ -1,8 +1,8 @@
 import type { LinksFunction } from '@remix-run/cloudflare';
-import { cssBundleHref } from '@remix-run/css-bundle';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import tailwindStyles from '@aproxima/ui/tailwind.css';
 
-export const links: LinksFunction = () => [...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : [])];
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindStyles }];
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="min-h-[100vh] w-[100vw] overflow-x-hidden bg-background dark:bg-backgroundDark text-lg text-text dark:text-textDark">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
