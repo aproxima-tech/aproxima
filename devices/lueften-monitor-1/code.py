@@ -12,6 +12,7 @@ import adafruit_requests
 import json
 
 # TODO: Attempt to connect wifi in a loop as it often fails the first time
+# TODO: One 401 from api, stop sending requests (to avoid spamming the api), show error code on screen
 
 #  Connect to your SSID
 print("Connecting to WiFi...")
