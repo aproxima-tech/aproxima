@@ -47,8 +47,8 @@ app.get('/db-check', async (c) => {
 app.post('/devices/:id/data', async (c) => {
   const deviceId = c.req.param('id');
   // TODO: Make sure deviceId is a valid device ID
-  const id = c.env.DEVICE_DATA_BROADCAST.idFromName(deviceId);
-  const obj = c.env.DEVICE_DATA_BROADCAST.get(id);
+  const id = c.env.DEVICE_DATA_FEED.idFromName(deviceId);
+  const obj = c.env.DEVICE_DATA_FEED.get(id);
   obj.fetch(c.req.raw);
   return c.json({ status: 'ok' });
 });
@@ -69,8 +69,8 @@ export default {
       return new Response('Missing device_id query parameter', { status: 400 });
     }
 
-    const id = env.DEVICE_DATA_BROADCAST.idFromName(deviceId);
-    const obj = env.DEVICE_DATA_BROADCAST.get(id);
+    const id = env.DEVICE_DATA_FEED.idFromName(deviceId);
+    const obj = env.DEVICE_DATA_FEED.get(id);
     return obj.fetch(request);
   },
 };
