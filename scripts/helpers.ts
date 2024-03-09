@@ -3,7 +3,7 @@ import path from "path";
 
 export function getWorkspaceDirs(baseDir: string) {
     // Define specific directories relative to the project root
-    const specificDirs = ['auth', 'home', 'shop', 'core-api'].map(dir => path.join(baseDir, dir));
+    const specificDirs = getAppDirs(baseDir);
     // Define the path to the packages directory relative to the project root
     const packagesDir = path.join(baseDir, 'packages');
     
@@ -13,4 +13,9 @@ export function getWorkspaceDirs(baseDir: string) {
       .map(dirent => path.join(packagesDir, dirent.name));
     
     return [...specificDirs, ...packageSubDirs];
+}
+
+export function getAppDirs(baseDir: string) {
+  // Define specific directories relative to the project root
+  return ['auth', 'home', 'shop', 'core-api'].map(dir => path.join(baseDir, dir));
 }
