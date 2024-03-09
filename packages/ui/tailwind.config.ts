@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import path from 'path';
+import tailwindAnimate from 'tailwindcss-animate';
 
 /// Node resolve path to: @aproxima/ui/src/**/*.{js,jsx,ts,tsx}
 const uiLibClasses = path.resolve(__dirname, 'src/**/*.{js,jsx,ts,tsx}');
@@ -23,5 +24,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindAnimate],
 } satisfies Config;

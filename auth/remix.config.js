@@ -15,4 +15,7 @@ export default {
   // assetsBuildDirectory: "public/build",
   // publicPath: "/build/",
   // serverBuildPath: "build/index.js",
+  dev: {
+    port: 3002,
+  },
 };
