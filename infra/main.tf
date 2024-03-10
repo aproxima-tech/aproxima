@@ -46,22 +46,10 @@ variable "CLOUDFLARE_APROXIMA_NET_ZONE_ID" {
 
 # DNS records
 
-# Redirect to shop.aproxima.net
-resource "cloudflare_record" "aproxima_net" {
-  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
-  name    = "aproxima.net"
-  type    = "CNAME"
-  value   = "shop.aproxima.net"
-  proxied = true
-}
-
-# Redirect to shop.aproxima.net
-resource "cloudflare_record" "www_aproxima_net" {
-  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
-  name    = "www"
-  type    = "CNAME"
-  value   = "shop.aproxima.net"
-  proxied = true
+resource "cloudflare_pages_domain" "core-web-domain" {
+  account_id   = var.CLOUDFLARE_ACCOUNT_ID
+  project_name = "core-web"
+  domain       = "aproxima.net"
 }
 
 # core-api worker must be deployed first before the domain can be added to it.
@@ -96,8 +84,17 @@ resource "cloudflare_worker_domain" "home" {
   service    = "home"
 }
 
+# Pages apps and Workers
+
+resource "cloudflare_pages_project" "core-web" {
+  account_id        = var.CLOUDFLARE_ACCOUNT_ID
+  name              = "core-web"
+  production_branch = "main"
+}
+
 # Databases
 
+# Core database for shop, home, and auth.
 resource "cloudflare_d1_database" "core-db" {
   account_id = var.CLOUDFLARE_ACCOUNT_ID
   name       = "core-db"
