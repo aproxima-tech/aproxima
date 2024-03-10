@@ -1,8 +1,8 @@
-name: Deploy core-api
+name: Deploy core-web
 on:
   push:
     paths:
-      - core-api/**
+      - core-web/**
     branches: [main]
 jobs:
   release:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./core-api
+        working-directory: ./core-web
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -9,7 +9,7 @@ compatibility_date = "2023-04-20"
   bucket = "./public"
 
 [build]
-  command = "npm run build"
+  command = "bun run build"
 
 [dev]
 port = 8484

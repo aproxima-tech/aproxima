@@ -15,6 +15,7 @@
     "auth",
     "core-api",
     "core-db",
+    "core-web",
     "home",
     "shop"
   ]

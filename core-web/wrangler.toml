@@ -1,12 +1,12 @@
-name = "auth"
+name = "core-web"
 
 workers_dev = true
-main = "./build/index.js"
+main = "./build/server/index.js"
 # https://developers.cloudflare.com/workers/platform/compatibility-dates
 compatibility_date = "2023-04-20"
 
 [site]
-  bucket = "./public"
+  bucket = "./build/client"
 
 [build]
   command = "bun run build"
@@ -19,9 +19,4 @@ database_id = "6ea62149-4309-4920-adf6-047d9b614af8"
 
 [vars]
 APEX_DOMAIN = "aproxima.net"
-HOME_HOST = "home.aproxima.net"
 PROTOCOL = "https:"
-
-[dev]
-port = 8585
-local_protocol = "http"

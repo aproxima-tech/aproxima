@@ -20,7 +20,7 @@ Open up [http://127.0.0.1:8787](http://127.0.0.1:8787) and you should be ready t
 If you want to check the production build, you can stop the dev server and run following commands:
 
 ```sh
-npm run build
+bun run build
 npm start
 ```
 

@@ -17,5 +17,5 @@ export function getWorkspaceDirs(baseDir: string) {
 
 export function getAppDirs(baseDir: string) {
   // Define specific directories relative to the project root
-  return ['auth', 'home', 'shop', 'core-api'].map(dir => path.join(baseDir, dir));
+  return ['auth', 'home', 'shop', 'core-api', 'core-web'].map(dir => path.join(baseDir, dir));
 }
