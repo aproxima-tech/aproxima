@@ -8,7 +8,8 @@
   "scripts": {
     "init": "bun install",
     "lint": "bun run scripts/lint.ts",
-    "clean": "bun run scripts/clean.ts"
+    "clean": "bun run scripts/clean.ts",
+    "deploy": "bun run scripts/deploy.ts"
   },
   "workspaces": [
     "packages/*",
