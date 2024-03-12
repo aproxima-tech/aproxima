@@ -76,8 +76,8 @@ export default function Component() {
         </CardHeader>
         <CardContent>
           <Fieldset>
-            <FormInput label="Email:" fieldData={fields.email} type="email" autoComplete="on" />
-            <FormInput label="Password:" fieldData={fields.password} type="password" autoComplete="new-password" />
+            <FormInput label="Email:" fieldData={fields['email']} type="email" autoComplete="on" />
+            <FormInput label="Password:" fieldData={fields['password']} type="password" autoComplete="new-password" />
           </Fieldset>
         </CardContent>
         <CardFooter>
