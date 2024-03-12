@@ -7,12 +7,12 @@ export type FormInputProps = Omit<InputProps, 'id' | 'type'> & {
   labelProps?: LabelProps;
   label: string;
   type: 'text' | 'email' | 'password';
-  fieldData: FieldMetadata<string, Record<string, unknown>, string[]>;
+  fieldData: FieldMetadata;
 };
 
 export function FormInput({ label, labelProps, type, fieldData, ...inputProps }: FormInputProps) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 w-[260px]">
       <Label htmlFor={fieldData.id} {...labelProps}>
         {label}
       </Label>
