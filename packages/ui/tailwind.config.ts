@@ -11,15 +11,16 @@ export default {
   theme: {
     extend: {
       colors: {
+        white: '#fafaf9',
         primary: '#A97BB5',
         primaryAccent: '#9F7BB5',
         secondary: '#817BB5',
         secondaryAccent: '#8B7BB5',
         text: '#222222',
         textDark: '#F5F5F5',
+        background: '#D9D9D9',
         backgroundPrimary: '#f5f5f4',
         backgroundDarkPrimary: '#44403c',
-        background: '#fafaf9',
         backgroundDark: '#222222',
       },
     },
