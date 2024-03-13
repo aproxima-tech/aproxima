@@ -135,3 +135,11 @@ resource "cloudflare_record" "aproxima_net_github_domain_verification_txt" {
   type    = "TXT"
   value   = "7ac9a94d15"
 }
+
+# CNAME storybook.aproxima.net to aproxima-tech.github.io
+resource "cloudflare_record" "storybook_aproxima_net_cname" {
+  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  name    = "storybook"
+  type    = "CNAME"
+  value   = "aproxima-tech.github.io"
+}
