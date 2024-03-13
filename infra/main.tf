@@ -129,6 +129,7 @@ resource "cloudflare_pages_project" "core-web" {
   production_branch = "main"
 }
 
+# Verify domain ownership for GitHub Pages
 resource "cloudflare_record" "aproxima_net_github_domain_verification_txt" {
   zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
   name    = "_github-challenge-aproxima-tech-org.aproxima.net"
