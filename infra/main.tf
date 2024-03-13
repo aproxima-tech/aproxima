@@ -128,3 +128,10 @@ resource "cloudflare_pages_project" "core-web" {
   name              = "core-web"
   production_branch = "main"
 }
+
+resource "cloudflare_record" "aproxima_net_github_domain_verification_txt" {
+  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  name    = "_github-challenge-aproxima-tech-org.aproxima.net"
+  type    = "TXT"
+  value   = "7ac9a94d15"
+}
