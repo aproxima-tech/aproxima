@@ -24,7 +24,7 @@ jobs:
       - name: Install bun
         uses: oven-sh/setup-bun@v1
       - name: Install dependencies
-        run: bun install --frozen-lockfile
+        run: bun install
       - name: Ensure there are no issues with running lint
         run: bun run lint
       - name: Publish package
