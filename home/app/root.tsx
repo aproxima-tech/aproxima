@@ -1,4 +1,5 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import { Body } from '@aproxima/ui';
 
 export default function App() {
   return (
@@ -9,12 +10,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <Body>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-      </body>
+      </Body>
     </html>
   );
 }
