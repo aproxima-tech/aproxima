@@ -1,6 +1,7 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 import tailwindStyles from '@aproxima/ui/tailwind.css?url';
 import type { LinksFunction } from '@remix-run/cloudflare';
+import { Body } from '@aproxima/ui';
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindStyles }];
 
@@ -14,11 +15,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
 
-      <body className="min-h-[100vh] w-[100vw] overflow-x-hidden bg-background dark:bg-backgroundDark text-lg text-text dark:text-textDark">
+      <Body>
         {children}
         <ScrollRestoration />
         <Scripts />
-      </body>
+      </Body>
     </html>
   );
 }
