@@ -1,3 +1,7 @@
+### 0.0.4
+
+Added `no-else-return` rule, which disallows `else` blocks following `if` blocks that contain a `return` statement.
+
 ### 0.0.2
 
 Created [Remix](https://remix.run) specific configuration and added it to the package. Can be used by adding `@remix-run/eslint-config/remix` instead of `@remix-run/eslint-config` to the `extends` array in your `eslint.config.js` file.

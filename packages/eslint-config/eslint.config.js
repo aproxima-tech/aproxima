@@ -37,6 +37,7 @@ export default typescriptEslint.config(
           disallowTypeAnnotations: true,
         },
       ],
+      'no-else-return': 'error',
       // TODO: Enable these rules once ESLint flat config is supported
       // "simple-import-sort/imports": "error",
       // "simple-import-sort/exports": "error",
