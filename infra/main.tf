@@ -108,6 +108,24 @@ resource "cloudflare_pages_domain" "core-web-domain" {
   domain       = "aproxima.net"
 }
 
+resource "cloudflare_pages_domain" "auth-domain" {
+  account_id   = var.CLOUDFLARE_ACCOUNT_ID
+  project_name = "auth"
+  domain       = "auth.aproxima.net"
+}
+
+resource "cloudflare_pages_domain" "home-domain" {
+  account_id   = var.CLOUDFLARE_ACCOUNT_ID
+  project_name = "home"
+  domain       = "home.aproxima.net"
+}
+
+resource "cloudflare_pages_domain" "shop-domain" {
+  account_id   = var.CLOUDFLARE_ACCOUNT_ID
+  project_name = "shop"
+  domain       = "shop.aproxima.net"
+}
+
 # core-api worker must be deployed first before the domain can be added to it.
 resource "cloudflare_worker_domain" "core-api" {
   account_id = var.CLOUDFLARE_ACCOUNT_ID
