@@ -64,6 +64,15 @@ resource "cloudflare_pages_project" "auth" {
   account_id        = var.CLOUDFLARE_ACCOUNT_ID
   name              = "auth"
   production_branch = "main"
+
+
+  deployment_configs {
+    production {
+      secrets = {
+        AUTH_SESSION_COOKIE_SECRET_ONE = var.CLOUDFLARE_AUTH_SESSION_COOKIE_SECRET_ONE
+      }
+    }
+  }
 }
 
 resource "cloudflare_pages_project" "home" {
@@ -78,7 +87,7 @@ resource "cloudflare_pages_project" "shop" {
   production_branch = "main"
 }
 
-# Secrets
+# Workers Secrets
 
 # TODO: This is a temporary way of protecting the core-api POST endpoints. This will be replaced with user auth.
 variable "CLOUDFLARE_CORE_API_API_KEY" {
