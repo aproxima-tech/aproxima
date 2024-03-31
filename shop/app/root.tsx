@@ -1,5 +1,9 @@
+import type { LinksFunction } from '@remix-run/cloudflare';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 import { Body } from '@aproxima/ui';
+import tailwindStyles from '@aproxima/ui/tailwind.css?url';
+
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindStyles }];
 
 export default function App() {
   return (

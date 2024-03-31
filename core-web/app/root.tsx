@@ -1,7 +1,7 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
-import tailwindStyles from '@aproxima/ui/tailwind.css?url';
 import type { LinksFunction } from '@remix-run/cloudflare';
 import { Body } from '@aproxima/ui';
+import tailwindStyles from '@aproxima/ui/tailwind.css?url';
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindStyles }];
 
