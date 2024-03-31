@@ -2,4 +2,4 @@ name = "home"
 
 # dev-only vars, production values set via infra/main.tf
 [vars]
-CORE_API_HOST = localhost:8787
+CORE_API_HOST = "localhost:8787"
