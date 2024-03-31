@@ -52,6 +52,32 @@ resource "cloudflare_d1_database" "core-db" {
   name       = "core-db"
 }
 
+# Cloudflare Pages (Workers created via wrangler.toml deployments)
+
+resource "cloudflare_pages_project" "core-web" {
+  account_id        = var.CLOUDFLARE_ACCOUNT_ID
+  name              = "core-web"
+  production_branch = "main"
+}
+
+resource "cloudflare_pages_project" "auth" {
+  account_id        = var.CLOUDFLARE_ACCOUNT_ID
+  name              = "auth"
+  production_branch = "main"
+}
+
+resource "cloudflare_pages_project" "home" {
+  account_id        = var.CLOUDFLARE_ACCOUNT_ID
+  name              = "home"
+  production_branch = "main"
+}
+
+resource "cloudflare_pages_project" "shop" {
+  account_id        = var.CLOUDFLARE_ACCOUNT_ID
+  name              = "shop"
+  production_branch = "main"
+}
+
 # Secrets
 
 # TODO: This is a temporary way of protecting the core-api POST endpoints. This will be replaced with user auth.
@@ -88,14 +114,6 @@ resource "cloudflare_worker_domain" "core-api" {
   zone_id    = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
   hostname   = "api.aproxima.net"
   service    = "core-api"
-}
-
-# Pages apps and Workers
-
-resource "cloudflare_pages_project" "core-web" {
-  account_id        = var.CLOUDFLARE_ACCOUNT_ID
-  name              = "core-web"
-  production_branch = "main"
 }
 
 # Verify domain ownership for GitHub Pages
