@@ -1,19 +1,1 @@
 name = "home"
-
-workers_dev = true
-main = "./build/index.js"
-# https://developers.cloudflare.com/workers/platform/compatibility-dates
-compatibility_date = "2023-04-20"
-
-[site]
-  bucket = "./public"
-
-[build]
-  command = "bun run build"
-
-[vars]
-CORE_API_HOST = "api.aproxima.net"
-
-[dev]
-port = 8686
-local_protocol = "http"

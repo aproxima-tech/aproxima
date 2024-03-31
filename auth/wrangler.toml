@@ -1,16 +1,5 @@
 name = "auth"
 
-workers_dev = true
-main = "./build/index.js"
-# https://developers.cloudflare.com/workers/platform/compatibility-dates
-compatibility_date = "2023-04-20"
-
-[site]
-  bucket = "./public"
-
-[build]
-  command = "bun run build"
-
 [[d1_databases]]
 binding = "DB"
 database_name = "core-db"
@@ -21,7 +10,3 @@ database_id = "6ea62149-4309-4920-adf6-047d9b614af8"
 APEX_DOMAIN = "aproxima.net"
 HOME_HOST = "home.aproxima.net"
 PROTOCOL = "https:"
-
-[dev]
-port = 8585
-local_protocol = "http"

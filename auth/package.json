@@ -7,9 +7,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typegen": "wrangler types",
+    "typegen": "wrangler types && bun run lint:fix",
     "build": "remix vite:build",
-    "deploy": "wrangler pages deploy ./build/client",
+    "deploy": "wrangler pages deploy ./build/client --project-name auth",
     "dev": "remix vite:dev",
     "start": "wrangler pages dev ./build/client"
   },

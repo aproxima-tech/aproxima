@@ -1,16 +1,5 @@
 name = "core-web"
 
-workers_dev = true
-main = "./build/server/index.js"
-# https://developers.cloudflare.com/workers/platform/compatibility-dates
-compatibility_date = "2023-04-20"
-
-[site]
-  bucket = "./build/client"
-
-[build]
-  command = "bun run build"
-
 [[d1_databases]]
 binding = "DB"
 database_name = "core-db"

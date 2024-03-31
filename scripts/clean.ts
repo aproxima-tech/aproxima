@@ -33,9 +33,21 @@ async function exec() {
     }
   }
 
-  // // Running bun install from root
-  // console.log("Running bun install from root...");
-  // await $`cd ${baseDir} && bun install`;
+  // Running bun install from root
+  console.log("Running bun install from root...");
+  await $`cd ${baseDir} && bun install`;
+
+  // For each workspace with package.json typegen script, run bun run typegen
+  for (const dir of getWorkspaceDirs(baseDir)) {
+    console.log(`Checking ${dir} for typegen script...`);
+    const packageJson = JSON.parse(
+      fs.readFileSync(path.join(dir, "package.json"), "utf8")
+    );
+    if (packageJson.scripts?.typegen) {
+      console.log(`Running typegen in ${dir}...`);
+      await $`cd ${dir} && bun run typegen`;
+    }
+  }
 
   // // For each workspace with d1 dependency, run the migrations
   // for (const dir of getWorkspaceDirs(baseDir)) {

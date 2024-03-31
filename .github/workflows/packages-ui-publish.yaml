@@ -17,7 +17,5 @@ jobs:
       id-token: write # The OIDC ID token is used for authentication with JSR.
     steps:
       - uses: actions/checkout@v4
-      - name: Install bun
-        uses: oven-sh/setup-bun@v1
-      - name: Publish to JSR
-        run: bunx jsr publish
+      - uses: oven-sh/setup-bun@v1
+      - run: bunx jsr publish

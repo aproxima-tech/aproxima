@@ -74,13 +74,6 @@ variable "CLOUDFLARE_AUTH_SESSION_COOKIE_SECRET_ONE" {
   sensitive   = true
 }
 
-resource "cloudflare_worker_secret" "auth-session-cookie-secret-one" {
-  account_id  = var.CLOUDFLARE_ACCOUNT_ID
-  name        = "AUTH_SESSION_COOKIE_SECRET_ONE"
-  script_name = "auth"
-  secret_text = var.CLOUDFLARE_AUTH_SESSION_COOKIE_SECRET_ONE
-}
-
 # DNS records
 
 resource "cloudflare_pages_domain" "core-web-domain" {
@@ -95,30 +88,6 @@ resource "cloudflare_worker_domain" "core-api" {
   zone_id    = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
   hostname   = "api.aproxima.net"
   service    = "core-api"
-}
-
-# auth worker must be deployed first before the domain can be added to it.
-resource "cloudflare_worker_domain" "auth" {
-  account_id = var.CLOUDFLARE_ACCOUNT_ID
-  zone_id    = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
-  hostname   = "auth.aproxima.net"
-  service    = "auth"
-}
-
-# shop worker must be deployed first before the domain can be added to it.
-resource "cloudflare_worker_domain" "shop" {
-  account_id = var.CLOUDFLARE_ACCOUNT_ID
-  zone_id    = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
-  hostname   = "shop.aproxima.net"
-  service    = "shop"
-}
-
-# home worker must be deployed first before the domain can be added to it.
-resource "cloudflare_worker_domain" "home" {
-  account_id = var.CLOUDFLARE_ACCOUNT_ID
-  zone_id    = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
-  hostname   = "home.aproxima.net"
-  service    = "home"
 }
 
 # Pages apps and Workers
