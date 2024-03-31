@@ -58,14 +58,19 @@ resource "cloudflare_pages_project" "core-web" {
   account_id        = var.CLOUDFLARE_ACCOUNT_ID
   name              = "core-web"
   production_branch = "main"
+  deployment_configs {
+    production {
+      d1_databases = {
+        DB = "6ea62149-4309-4920-adf6-047d9b614af8"
+      }
+    }
+  }
 }
 
 resource "cloudflare_pages_project" "auth" {
   account_id        = var.CLOUDFLARE_ACCOUNT_ID
   name              = "auth"
   production_branch = "main"
-
-
   deployment_configs {
     production {
       environment_variables = {
@@ -75,6 +80,9 @@ resource "cloudflare_pages_project" "auth" {
       }
       secrets = {
         AUTH_SESSION_COOKIE_SECRET_ONE = var.CLOUDFLARE_AUTH_SESSION_COOKIE_SECRET_ONE
+      }
+      d1_databases = {
+        DB = "6ea62149-4309-4920-adf6-047d9b614af8"
       }
     }
   }
@@ -89,6 +97,9 @@ resource "cloudflare_pages_project" "home" {
       environment_variables = {
         CORE_API_HOST = "api.aproxima.net"
       }
+      d1_databases = {
+        DB = "6ea62149-4309-4920-adf6-047d9b614af8"
+      }
     }
 
   }
@@ -98,6 +109,13 @@ resource "cloudflare_pages_project" "shop" {
   account_id        = var.CLOUDFLARE_ACCOUNT_ID
   name              = "shop"
   production_branch = "main"
+  deployment_configs {
+    production {
+      d1_databases = {
+        DB = "6ea62149-4309-4920-adf6-047d9b614af8"
+      }
+    }
+  }
 }
 
 # Workers Secrets
