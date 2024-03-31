@@ -171,3 +171,27 @@ resource "cloudflare_record" "storybook_aproxima_net_cname" {
   type    = "CNAME"
   value   = "aproxima-tech.github.io"
 }
+
+# CNAME for auth Pages
+resource "cloudflare_record" "auth_aproxima_net_cname" {
+  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  name    = "auth"
+  type    = "CNAME"
+  value   = "auth-9t9.pages.dev"
+}
+
+# CNAME for home Pages
+resource "cloudflare_record" "home_aproxima_net_cname" {
+  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  name    = "home"
+  type    = "CNAME"
+  value   = "home-4wr.pages.dev"
+}
+
+# CNAME for shop Pages
+resource "cloudflare_record" "shop_aproxima_net_cname" {
+  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  name    = "shop"
+  type    = "CNAME"
+  value   = "shop-8b0.pages.dev"
+}
