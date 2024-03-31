@@ -172,6 +172,14 @@ resource "cloudflare_record" "storybook_aproxima_net_cname" {
   value   = "aproxima-tech.github.io"
 }
 
+# CXAME for core-web Pages
+resource "cloudflare_record" "core_web_aproxima_net_cname" {
+  zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
+  name    = ""
+  type    = "CNAME"
+  value   = "core-web-cxj.pages.dev"
+}
+
 # CNAME for auth Pages
 resource "cloudflare_record" "auth_aproxima_net_cname" {
   zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
