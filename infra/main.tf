@@ -172,10 +172,10 @@ resource "cloudflare_record" "storybook_aproxima_net_cname" {
   value   = "aproxima-tech.github.io"
 }
 
-# CXAME for core-web Pages
+# CNAME for core-web Pages (@ for apex domain)
 resource "cloudflare_record" "core_web_aproxima_net_cname" {
   zone_id = var.CLOUDFLARE_APROXIMA_NET_ZONE_ID
-  name    = ""
+  name    = "@"
   type    = "CNAME"
   value   = "core-web-cxj.pages.dev"
 }
