@@ -68,6 +68,11 @@ resource "cloudflare_pages_project" "auth" {
 
   deployment_configs {
     production {
+      environment_variables = {
+        APEX_DOMAIN = "aproxima.net"
+        HOME_HOST   = "home.aproxima.net"
+        PROTOCOL    = "https:"
+      }
       secrets = {
         AUTH_SESSION_COOKIE_SECRET_ONE = var.CLOUDFLARE_AUTH_SESSION_COOKIE_SECRET_ONE
       }
