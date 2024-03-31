@@ -1,5 +1,6 @@
 name: Deploy core-api
 on:
+  workflow_dispatch:
   push:
     paths:
       - core-api/**

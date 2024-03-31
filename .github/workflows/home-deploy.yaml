@@ -1,5 +1,6 @@
 name: Deploy home
 on:
+  workflow_dispatch:
   push:
     paths:
       - home/**
