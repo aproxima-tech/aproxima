@@ -1,4 +1,0 @@
-APEX_DOMAIN=localhost
-HOME_HOST=localhost:8686
-PROTOCOL=http:
-AUTH_SESSION_COOKIE_SECRET_ONE=<generated secret>

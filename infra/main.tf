@@ -84,6 +84,14 @@ resource "cloudflare_pages_project" "home" {
   account_id        = var.CLOUDFLARE_ACCOUNT_ID
   name              = "home"
   production_branch = "main"
+  deployment_configs {
+    production {
+      environment_variables = {
+        CORE_API_HOST = "api.aproxima.net"
+      }
+    }
+
+  }
 }
 
 resource "cloudflare_pages_project" "shop" {

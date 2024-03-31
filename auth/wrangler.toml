@@ -6,7 +6,12 @@ database_name = "core-db"
 # database_id uuid is not a secret, it is used to identify the database in the D1 infrastructure
 database_id = "6ea62149-4309-4920-adf6-047d9b614af8"
 
+# dev-only vars, production values set via infra/main.tf
 [vars]
-APEX_DOMAIN = "aproxima.net"
-HOME_HOST = "home.aproxima.net"
-PROTOCOL = "https:"
+APEX_DOMAIN = "localhost"
+HOME_HOST = "localhost:3002"
+PROTOCOL = "http:"
+
+# dev-only secrets, production values set via infra/main.tf
+[secrets]
+AUTH_SESSION_COOKIE_SECRET_ONE = "12345678910"
