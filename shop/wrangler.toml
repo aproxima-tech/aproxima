@@ -1,7 +1,0 @@
-name = "shop"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "core-db"
-# database_id uuid is not a secret, it is used to identify the database in the D1 infrastructure
-database_id = "6ea62149-4309-4920-adf6-047d9b614af8"

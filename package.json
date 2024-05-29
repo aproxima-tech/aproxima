@@ -6,18 +6,9 @@
     "url": "git+https://github.com/aproxima-tech/aproxima.git"
   },
   "scripts": {
-    "init": "bun install",
-    "lint": "bun run scripts/lint.ts",
-    "clean": "bun run scripts/clean.ts",
-    "deploy": "bun run scripts/deploy.ts"
+    "init": "bun install"
   },
   "workspaces": [
-    "packages/*",
-    "auth",
-    "core-api",
-    "core-db",
-    "core-web",
-    "home",
-    "shop"
+    "packages/*"
   ]
 }
