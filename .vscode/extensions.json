@@ -1,3 +1,7 @@
 {
-  "recommendations": ["dbaeumer.vscode-eslint", "HashiCorp.terraform"]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "HashiCorp.terraform",
+    "ms-azuretools.vscode-docker"
+  ]
 }

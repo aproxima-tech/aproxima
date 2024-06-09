@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1
 
 # Adjust BUN_VERSION as desired
-ARG BUN_VERSION=1.0.29
+ARG BUN_VERSION=1.1.12
 FROM oven/bun:${BUN_VERSION}-slim as base
 
 LABEL fly_launch_runtime="Remix"
@@ -11,6 +11,7 @@ WORKDIR /app
 
 # Set production environment
 ENV NODE_ENV="production"
+
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
@@ -32,6 +33,7 @@ RUN bun --bun run build
 # Remove development dependencies
 RUN rm -rf node_modules && \
     bun install --ci
+
 
 # Final stage for app image
 FROM base
